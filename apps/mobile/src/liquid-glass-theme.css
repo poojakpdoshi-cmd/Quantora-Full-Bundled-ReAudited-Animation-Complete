@@ -1,0 +1,1652 @@
+/* ==========================================================================
+   SYNTEOPIX AI — LIQUID GLASS (HYDRO-GLASS) MASTER THEME
+   Pixel-Perfect Match to WhatsApp Reference & Specular Glassmorphism
+   ========================================================================== */
+
+:root {
+  --lg-bg-base: #dce8f7;
+  --lg-bg-gradient: radial-gradient(circle at 20% 15%, rgba(255, 255, 255, 0.95), transparent 45%),
+                    radial-gradient(circle at 80% 25%, rgba(195, 225, 255, 0.7), transparent 50%),
+                    radial-gradient(circle at 50% 80%, rgba(175, 210, 255, 0.6), transparent 60%),
+                    linear-gradient(180deg, #e3effc 0%, #d4e4f7 50%, #c6daf0 100%);
+  --lg-glass-bg: rgba(255, 255, 255, 0.58);
+  --lg-glass-bg-hover: rgba(255, 255, 255, 0.75);
+  --lg-glass-border: 1.8px solid rgba(255, 255, 255, 0.92);
+  --lg-glass-shadow: 0 12px 36px rgba(120, 160, 215, 0.22),
+                     inset 0 2px 6px rgba(255, 255, 255, 0.95),
+                     inset 0 -4px 10px rgba(150, 190, 240, 0.4),
+                     inset 3px 0 8px rgba(255, 255, 255, 0.7),
+                     inset -3px 0 8px rgba(150, 190, 240, 0.35);
+  --lg-glass-shadow-active: 0 16px 44px rgba(100, 150, 220, 0.32),
+                            inset 0 2px 7px rgba(255, 255, 255, 1),
+                            inset 0 -5px 12px rgba(140, 185, 245, 0.5);
+  --lg-text-primary: #1e293b;
+  --lg-text-secondary: #475569;
+  --lg-text-muted: #64748b;
+  --lg-accent-blue: #3b82f6;
+  --lg-accent-glow: rgba(59, 130, 246, 0.35);
+}
+
+/* Background across Chat & Shell */
+body,
+#root,
+.claude-workspace,
+.synteopix-workspace-root,
+.app-shell,
+.app-shell.chat-page-active {
+  background: var(--lg-bg-gradient) !important;
+  color: var(--lg-text-primary) !important;
+  min-height: 100vh;
+  font-family: 'Outfit', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+}
+
+/* Soft ambient caustic drift */
+.synteopix-workspace-root::before,
+.claude-workspace::before {
+  content: "";
+  position: fixed;
+  top: 10%;
+  left: 15%;
+  width: 450px;
+  height: 450px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.7) 0%, rgba(190, 220, 255, 0.25) 55%, transparent 75%) !important;
+  border-radius: 50%;
+  filter: blur(40px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ==========================================================================
+   TOPBAR — MATCHING REFERENCE IMAGE
+   ========================================================================== */
+
+.synteopix-glass-topbar,
+.claude-topbar {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  padding: 14px 20px !important;
+  background: rgba(255, 255, 255, 0.38) !important;
+  backdrop-filter: blur(25px) saturate(190%) !important;
+  -webkit-backdrop-filter: blur(25px) saturate(190%) !important;
+  border-bottom: 1.5px solid rgba(255, 255, 255, 0.8) !important;
+  box-shadow: 0 8px 24px rgba(120, 160, 215, 0.12), inset 0 -1px 2px rgba(255, 255, 255, 0.9) !important;
+  position: relative;
+  z-index: 20;
+}
+
+.synteopix-brand-cluster {
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+}
+
+/* 3D Shiny S Logo Badge */
+.synteopix-glass-logo-badge {
+  width: 46px !important;
+  height: 46px !important;
+  border-radius: 50% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background: radial-gradient(circle at 35% 30%, #ffffff 0%, #dbeafe 55%, #93c5fd 100%) !important;
+  border: 2px solid rgba(255, 255, 255, 0.95) !important;
+  box-shadow: 0 8px 20px rgba(59, 130, 246, 0.25),
+              inset 0 3px 6px #ffffff,
+              inset 0 -3px 8px rgba(37, 99, 235, 0.4) !important;
+  position: relative !important;
+  flex-shrink: 0;
+}
+
+.synteopix-glass-logo-badge.large {
+  width: 72px !important;
+  height: 72px !important;
+}
+
+.synteopix-glass-logo-badge .synteopix-s-letter {
+  font-family: 'Outfit', 'Inter', sans-serif !important;
+  font-size: 26px !important;
+  font-weight: 800 !important;
+  background: linear-gradient(135deg, #1d4ed8 0%, #3b82f6 50%, #60a5fa 100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  letter-spacing: -0.5px;
+}
+
+.synteopix-glass-logo-badge.large .synteopix-s-letter {
+  font-size: 40px !important;
+}
+
+.synteopix-glass-logo-badge .synteopix-sparkle {
+  position: absolute;
+  top: 1px;
+  right: 2px;
+  font-size: 11px;
+  opacity: 0.9;
+}
+
+.synteopix-brand-texts {
+  display: flex;
+  flex-direction: column;
+}
+
+.synteopix-title {
+  font-size: 20px !important;
+  font-weight: 900 !important;
+  color: #0f172a !important;
+  text-shadow: none !important;
+  letter-spacing: -0.4px !important;
+  line-height: 1.15 !important;
+  font-family: 'Outfit', 'Inter', sans-serif !important;
+}
+
+.synteopix-subtitle {
+  font-size: 11.5px !important;
+  color: #0284c7 !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.8px !important;
+  text-transform: uppercase !important;
+}
+
+/* Circular Hamburger Button on Right */
+.synteopix-hamburger-btn {
+  width: 44px !important;
+  height: 44px !important;
+  border-radius: 50% !important;
+  background: rgba(255, 255, 255, 0.7) !important;
+  backdrop-filter: blur(25px) saturate(190%) !important;
+  -webkit-backdrop-filter: blur(25px) saturate(190%) !important;
+  border: 1.8px solid rgba(255, 255, 255, 0.95) !important;
+  box-shadow: 0 6px 18px rgba(2, 132, 199, 0.15),
+              inset 0 2px 5px rgba(255, 255, 255, 0.95),
+              inset 0 -2px 6px rgba(150, 190, 240, 0.35) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 5px !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
+}
+
+.synteopix-hamburger-btn:hover {
+  transform: scale(1.06);
+  background: rgba(255, 255, 255, 0.9) !important;
+  box-shadow: 0 8px 24px rgba(2, 132, 199, 0.3) !important;
+}
+
+.synteopix-hamburger-btn .bar {
+  width: 20px !important;
+  height: 2.5px !important;
+  background: #0f172a !important;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1) !important;
+  border-radius: 3px !important;
+  display: block !important;
+  transition: background 0.15s ease !important;
+}
+
+.synteopix-hamburger-btn:hover .bar {
+  background: #0284c7 !important;
+}
+
+/* ==========================================================================
+   DRAWER NAVIGATION (INCL. OWNER CONTROL ROOM & FULL SCROLL FIX)
+   ========================================================================== */
+
+.synteopix-glass-drawer,
+.claude-drawer {
+  position: fixed !important;
+  inset: 0 auto 0 0 !important;
+  width: min(340px, 86vw) !important;
+  height: 100vh !important;
+  height: 100dvh !important;
+  max-height: 100dvh !important;
+  display: flex !important;
+  flex-direction: column !important;
+  overflow: hidden !important;
+  background: rgba(255, 255, 255, 0.88) !important;
+  backdrop-filter: blur(40px) saturate(200%) !important;
+  -webkit-backdrop-filter: blur(40px) saturate(200%) !important;
+  border-right: 1.8px solid rgba(255, 255, 255, 0.95) !important;
+  box-shadow: 0 20px 60px rgba(15, 23, 42, 0.25) !important;
+  color: #1e293b !important;
+  padding: 0 !important;
+  z-index: 1000 !important;
+}
+
+.claude-drawer-header {
+  flex-shrink: 0 !important;
+  padding: max(16px, env(safe-area-inset-top)) 16px 14px !important;
+  border-bottom: 1px solid rgba(2, 132, 199, 0.1) !important;
+  margin: 0 !important;
+}
+
+.synteopix-drawer-close-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.6);
+  color: #475569;
+  font-size: 16px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+
+/* Prominent Owner Control Room Button */
+.synteopix-owner-control-btn {
+  width: 100%;
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  padding: 12px 16px !important;
+  border-radius: 18px !important;
+  background: linear-gradient(135deg, rgba(254, 240, 138, 0.6) 0%, rgba(253, 224, 71, 0.4) 100%) !important;
+  border: 1.8px solid rgba(250, 204, 21, 0.85) !important;
+  box-shadow: 0 8px 24px rgba(234, 179, 8, 0.25), inset 0 2px 4px #ffffff !important;
+  cursor: pointer !important;
+  transition: transform 0.15s ease, box-shadow 0.15s ease !important;
+  margin-top: 4px;
+}
+
+.synteopix-owner-control-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(234, 179, 8, 0.35) !important;
+}
+
+.synteopix-owner-control-btn .crown-icon {
+  font-size: 24px;
+}
+
+.synteopix-new-chat-btn {
+  background: rgba(255, 255, 255, 0.7) !important;
+  border: 1.5px solid rgba(255, 255, 255, 0.95) !important;
+  color: #1d4ed8 !important;
+  font-weight: 700 !important;
+  border-radius: 14px !important;
+  box-shadow: 0 4px 14px rgba(59, 130, 246, 0.12) !important;
+  margin: 12px 16px !important;
+  flex-shrink: 0 !important;
+}
+
+.synteopix-drawer-nav,
+.claude-drawer-nav {
+  flex: 1 1 auto !important;
+  min-height: 0 !important;
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+  -webkit-overflow-scrolling: touch !important;
+  overscroll-behavior: contain !important;
+  padding: 8px 14px 28px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 4px !important;
+  margin: 0 !important;
+}
+
+.synteopix-drawer-nav::-webkit-scrollbar,
+.claude-drawer-nav::-webkit-scrollbar {
+  width: 5px !important;
+}
+
+.synteopix-drawer-nav::-webkit-scrollbar-track,
+.claude-drawer-nav::-webkit-scrollbar-track {
+  background: transparent !important;
+}
+
+.synteopix-drawer-nav::-webkit-scrollbar-thumb,
+.claude-drawer-nav::-webkit-scrollbar-thumb {
+  background: rgba(2, 132, 199, 0.25) !important;
+  border-radius: 9999px !important;
+}
+
+.synteopix-drawer-nav button,
+.claude-drawer-nav button {
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  padding: 11px 16px !important;
+  color: #334155 !important;
+  font-weight: 600 !important;
+  font-size: 14px !important;
+  border-radius: 12px !important;
+  border: none !important;
+  background: transparent !important;
+  cursor: pointer !important;
+  transition: all 0.15s ease !important;
+  text-align: left !important;
+  width: 100% !important;
+  flex-shrink: 0 !important;
+}
+
+.synteopix-drawer-nav button:hover,
+.claude-drawer-nav button:hover {
+  background: rgba(255, 255, 255, 0.8) !important;
+  color: #1d4ed8 !important;
+  transform: translateX(4px);
+}
+
+.synteopix-drawer-nav button .icon,
+.claude-drawer-nav button span {
+  font-size: 18px;
+}
+
+.claude-drawer-footer {
+  flex-shrink: 0 !important;
+  padding: 14px 16px max(14px, env(safe-area-inset-bottom)) !important;
+  border-top: 1px solid rgba(2, 132, 199, 0.1) !important;
+  background: rgba(255, 255, 255, 0.75) !important;
+  backdrop-filter: blur(15px) !important;
+  margin-top: auto !important;
+}
+
+/* ==========================================================================
+   CHAT MESSAGES & ORGANIC LIQUID DROPLET BUBBLES
+   ========================================================================== */
+
+.synteopix-chat-viewport {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 74px);
+  position: relative;
+  z-index: 10;
+}
+
+.synteopix-chat-scroll {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px 16px 150px;
+}
+
+.synteopix-message-stream {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  max-width: 680px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.synteopix-msg-row {
+  display: flex !important;
+  align-items: flex-start !important;
+  gap: 10px !important;
+  width: 100% !important;
+}
+
+.synteopix-msg-row.user {
+  justify-content: flex-end !important;
+}
+
+.synteopix-msg-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #ffffff 0%, #dbeafe 60%, #93c5fd 100%);
+  border: 1.5px solid rgba(255, 255, 255, 0.95);
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.25), inset 0 2px 4px #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  color: #2563eb;
+  font-size: 17px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+/* Specular Droplet Bubble */
+.synteopix-droplet-bubble {
+  position: relative !important;
+  max-width: 82% !important;
+  padding: 16px 22px !important;
+  backdrop-filter: blur(35px) saturate(200%) !important;
+  -webkit-backdrop-filter: blur(35px) saturate(200%) !important;
+  border: 1.8px solid rgba(255, 255, 255, 0.95) !important;
+  box-shadow: 0 12px 36px rgba(120, 160, 215, 0.22),
+              inset 0 2px 7px rgba(255, 255, 255, 0.98),
+              inset 0 -4px 10px rgba(150, 190, 240, 0.4),
+              inset 3px 0 8px rgba(255, 255, 255, 0.7),
+              inset -3px 0 8px rgba(150, 190, 240, 0.35) !important;
+  transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+}
+
+/* Assistant Droplet: Fluid asymmetric curves */
+.synteopix-msg-row.assistant .synteopix-droplet-bubble {
+  border-radius: 34px 44px 38px 26px / 40px 32px 44px 34px !important;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.72) 0%, rgba(230, 242, 255, 0.58) 100%) !important;
+}
+
+/* User Droplet: Fluid asymmetric curves on right */
+.synteopix-msg-row.user .synteopix-droplet-bubble {
+  border-radius: 42px 32px 30px 42px / 34px 42px 32px 40px !important;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.8) 0%, rgba(225, 240, 255, 0.68) 100%) !important;
+}
+
+/* Glossy top specular reflection ridge */
+.synteopix-specular-ridge {
+  position: absolute;
+  top: 3px;
+  left: 22px;
+  right: 22px;
+  height: 5px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.98) 40%, rgba(255, 255, 255, 0.98) 60%, transparent);
+  pointer-events: none;
+  opacity: 0.95;
+}
+
+.synteopix-msg-text {
+  color: #1a2638 !important;
+  font-size: 15.5px !important;
+  line-height: 1.5 !important;
+  margin: 0 !important;
+  font-weight: 450 !important;
+  white-space: pre-wrap;
+  word-break: break-word;
+  letter-spacing: -0.1px;
+}
+
+.synteopix-bubble-footer {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-end !important;
+  gap: 6px !important;
+  margin-top: 6px !important;
+}
+
+.synteopix-bubble-footer time {
+  color: #718398 !important;
+  font-size: 11px !important;
+  font-weight: 500 !important;
+}
+
+.synteopix-read-ticks {
+  color: #8095ad !important;
+  font-size: 13px !important;
+  font-weight: 700 !important;
+  letter-spacing: -1.5px;
+}
+
+/* ==========================================================================
+   FLOATING PILL COMPOSER (MATCHING REFERENCE IMAGE)
+   ========================================================================== */
+
+.synteopix-composer-wrapper {
+  position: fixed !important;
+  bottom: 66px !important;
+  left: 0 !important;
+  right: 0 !important;
+  padding: 8px 16px !important;
+  background: transparent !important;
+  display: flex !important;
+  justify-content: center !important;
+  z-index: 30 !important;
+  pointer-events: none;
+}
+
+.synteopix-floating-pill-composer {
+  background: rgba(255, 255, 255, 0.88) !important;
+  backdrop-filter: blur(35px) saturate(200%) !important;
+  -webkit-backdrop-filter: blur(35px) saturate(200%) !important;
+  border: 2px solid rgba(255, 255, 255, 0.95) !important;
+  border-radius: 9999px !important;
+  box-shadow: 0 16px 40px rgba(2, 132, 199, 0.16),
+              0 4px 12px rgba(0, 0, 0, 0.05),
+              inset 0 2px 6px #ffffff !important;
+  display: flex !important;
+  align-items: center !important;
+  padding: 8px 12px 8px 14px !important;
+  gap: 12px !important;
+  position: relative !important;
+}
+
+/* Left + Button */
+.synteopix-plus-circle-btn {
+  width: 40px !important;
+  height: 40px !important;
+  border-radius: 50% !important;
+  background: linear-gradient(135deg, #0284c7, #2563eb) !important;
+  backdrop-filter: blur(20px) !important;
+  border: 1.5px solid rgba(255, 255, 255, 0.9) !important;
+  box-shadow: 0 4px 14px rgba(2, 132, 199, 0.35), inset 0 1px 3px rgba(255, 255, 255, 0.8) !important;
+  color: #ffffff !important;
+  font-size: 22px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  cursor: pointer !important;
+  flex-shrink: 0;
+  transition: transform 0.15s ease, box-shadow 0.15s ease !important;
+}
+
+.synteopix-plus-circle-btn:hover {
+  transform: scale(1.08);
+  box-shadow: 0 6px 18px rgba(2, 132, 199, 0.5) !important;
+}
+
+.synteopix-floating-pill-composer textarea {
+  flex: 1 !important;
+  background: transparent !important;
+  border: none !important;
+  color: #0f172a !important;
+  font-size: 15px !important;
+  font-weight: 600 !important;
+  padding: 8px 4px !important;
+  resize: none !important;
+  outline: none !important;
+  height: 38px !important;
+  line-height: 22px !important;
+}
+
+.synteopix-floating-pill-composer textarea::placeholder {
+  color: #64748b !important;
+  font-weight: 500 !important;
+}
+
+/* Mic Button */
+.synteopix-mic-btn {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1px solid rgba(2, 132, 199, 0.25);
+  background: rgba(2, 132, 199, 0.08);
+  color: #0284c7 !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: all 0.15s ease;
+}
+
+.synteopix-mic-btn:hover {
+  background: rgba(2, 132, 199, 0.16);
+  transform: scale(1.06);
+}
+
+/* Glossy Circular Send Button on Right */
+.synteopix-send-circle-btn {
+  width: 44px !important;
+  height: 44px !important;
+  border-radius: 50% !important;
+  background: linear-gradient(135deg, #0284c7, #2563eb) !important;
+  border: 2px solid rgba(255, 255, 255, 0.95) !important;
+  box-shadow: 0 8px 24px rgba(2, 132, 199, 0.45),
+              inset 0 2px 5px rgba(255, 255, 255, 0.9),
+              inset 0 -3px 6px rgba(30, 64, 175, 0.4) !important;
+  color: #ffffff !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  cursor: pointer !important;
+  flex-shrink: 0;
+  transition: transform 0.15s ease, box-shadow 0.15s ease !important;
+}
+
+.synteopix-send-circle-btn:hover:not(:disabled) {
+  transform: scale(1.08) !important;
+  box-shadow: 0 10px 30px rgba(2, 132, 199, 0.6) !important;
+}
+
+.synteopix-send-circle-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* ==========================================================================
+   ATTACHMENT SYSTEM (PHOTO & DOCUMENT UPLOAD)
+   ========================================================================== */
+
+.synteopix-attachment-popup {
+  position: absolute;
+  bottom: 64px;
+  left: 0;
+  z-index: 100;
+  width: min(320px, calc(100vw - 32px));
+  padding: 10px;
+  border-radius: 20px !important;
+  background: rgba(255, 255, 255, 0.92) !important;
+  backdrop-filter: blur(35px) saturate(200%) !important;
+  -webkit-backdrop-filter: blur(35px) saturate(200%) !important;
+  border: 1.8px solid rgba(255, 255, 255, 0.95) !important;
+  box-shadow: 0 20px 48px rgba(2, 132, 199, 0.22), 0 4px 16px rgba(0, 0, 0, 0.08), inset 0 2px 4px #ffffff !important;
+  animation: synteopixPopupSlide 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+@keyframes synteopixPopupSlide {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.synteopix-attachment-popup .popup-title {
+  font-size: 10.5px !important;
+  font-weight: 850 !important;
+  color: #0284c7 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 1.2px !important;
+  padding: 4px 10px 8px !important;
+  border-bottom: 1px solid rgba(2, 132, 199, 0.12) !important;
+  margin-bottom: 6px !important;
+}
+
+.synteopix-attach-option-btn {
+  width: 100% !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  padding: 10px 12px !important;
+  border-radius: 14px !important;
+  background: transparent !important;
+  border: 1px solid transparent !important;
+  box-shadow: none !important;
+  text-align: left !important;
+  cursor: pointer !important;
+  transition: all 0.15s ease !important;
+}
+
+.synteopix-attach-option-btn:hover {
+  background: rgba(2, 132, 199, 0.08) !important;
+  border-color: rgba(2, 132, 199, 0.25) !important;
+  transform: translateX(3px) !important;
+}
+
+.synteopix-attach-option-btn .attach-icon-badge {
+  width: 36px;
+  height: 36px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+.synteopix-attach-option-btn .img-badge {
+  background: linear-gradient(135deg, rgba(2, 132, 199, 0.15), rgba(59, 130, 246, 0.2));
+  border: 1px solid rgba(2, 132, 199, 0.3);
+}
+
+.synteopix-attach-option-btn .doc-badge {
+  background: linear-gradient(135deg, rgba(168, 85, 247, 0.15), rgba(139, 92, 246, 0.2));
+  border: 1px solid rgba(168, 85, 247, 0.3);
+}
+
+.synteopix-attach-option-btn .attach-meta strong {
+  display: block !important;
+  font-size: 13px !important;
+  font-weight: 750 !important;
+  color: #0f172a !important;
+}
+
+.synteopix-attach-option-btn .attach-meta small {
+  display: block !important;
+  font-size: 11px !important;
+  color: #64748b !important;
+  margin-top: 1px !important;
+}
+
+/* Attached Chip Preview Above Composer */
+.synteopix-attached-chip-card {
+  position: absolute;
+  bottom: 66px;
+  left: 12px;
+  right: 12px;
+  z-index: 80;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 14px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.95);
+  border: 1.5px solid rgba(2, 132, 199, 0.35);
+  box-shadow: 0 10px 26px rgba(2, 132, 199, 0.18);
+  backdrop-filter: blur(20px);
+}
+
+.synteopix-attached-chip-card .chip-preview-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+
+.synteopix-attached-chip-card .chip-thumbnail {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  object-fit: cover;
+  border: 1px solid rgba(2, 132, 199, 0.3);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  flex-shrink: 0;
+}
+
+.synteopix-attached-chip-card .chip-doc-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  background: #f1f5f9;
+  border: 1px solid #cbd5e1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  flex-shrink: 0;
+}
+
+.synteopix-attached-chip-card .chip-meta {
+  min-width: 0;
+}
+
+.synteopix-attached-chip-card .chip-filename {
+  display: block;
+  font-size: 13px;
+  font-weight: 700;
+  color: #0f172a;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 220px;
+}
+
+.synteopix-attached-chip-card .chip-status {
+  display: block;
+  font-size: 11px;
+  color: #059669;
+  font-weight: 600;
+}
+
+.synteopix-attached-chip-card .chip-remove-btn {
+  width: 28px !important;
+  height: 28px !important;
+  border-radius: 50% !important;
+  background: rgba(239, 68, 68, 0.1) !important;
+  border: 1px solid rgba(239, 68, 68, 0.25) !important;
+  color: #dc2626 !important;
+  font-size: 13px !important;
+  font-weight: 800 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  cursor: pointer !important;
+  flex-shrink: 0;
+  box-shadow: none !important;
+  transition: all 0.15s ease !important;
+}
+
+.synteopix-attached-chip-card .chip-remove-btn:hover {
+  background: #ef4444 !important;
+  color: #ffffff !important;
+}
+
+/* ==========================================================================
+   WELCOME CARDS (EMPTY CHAT)
+   ========================================================================== */
+
+.synteopix-welcome-glass {
+  text-align: center;
+  max-width: 620px;
+  margin: 20px auto;
+  padding: 10px 16px;
+}
+
+.synteopix-welcome-headline,
+.claude-welcome h1 {
+  font-size: clamp(28px, 6vw, 38px) !important;
+  font-weight: 900 !important;
+  color: #0f172a !important;
+  background: none !important;
+  -webkit-text-fill-color: #0f172a !important;
+  margin: 16px 0 8px !important;
+  letter-spacing: -0.8px !important;
+  text-shadow: none !important;
+}
+
+.synteopix-welcome-desc,
+.claude-welcome-copy {
+  color: #334155 !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  margin-bottom: 24px !important;
+  line-height: 1.55 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.5px !important;
+}
+
+.synteopix-starters-grid,
+.claude-starters {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 14px;
+  width: 100%;
+}
+
+.synteopix-starter-glass-pill,
+.claude-starters button {
+  background: linear-gradient(135deg, rgba(15, 23, 42, 0.92), rgba(30, 41, 59, 0.95)) !important;
+  backdrop-filter: blur(25px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(25px) saturate(180%) !important;
+  border: 1.5px solid rgba(56, 189, 248, 0.4) !important;
+  border-radius: 20px !important;
+  box-shadow: 0 10px 28px rgba(15, 23, 42, 0.22), inset 0 1px 2px rgba(255, 255, 255, 0.25) !important;
+  padding: 16px 20px !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  text-align: left !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
+  color: #ffffff !important;
+}
+
+.claude-starters button:nth-child(even),
+.synteopix-starter-glass-pill:nth-child(even) {
+  background: linear-gradient(135deg, rgba(30, 27, 75, 0.94), rgba(49, 46, 129, 0.96)) !important;
+  border: 1.5px solid rgba(168, 85, 247, 0.45) !important;
+}
+
+.synteopix-starter-glass-pill:hover,
+.claude-starters button:hover {
+  transform: translateY(-3px) scale(1.02);
+  border-color: #38bdf8 !important;
+  box-shadow: 0 14px 36px rgba(14, 165, 233, 0.35) !important;
+}
+
+.synteopix-starter-glass-pill span,
+.claude-starters button span {
+  color: #38bdf8 !important;
+  font-size: 18px !important;
+}
+
+.synteopix-starter-glass-pill:nth-child(even) span,
+.claude-starters button:nth-child(even) span {
+  color: #c084fc !important;
+}
+
+.synteopix-starter-glass-pill p,
+.claude-starters button p,
+.claude-starters button {
+  margin: 0 !important;
+  font-size: 13.5px !important;
+  font-weight: 650 !important;
+  color: #ffffff !important;
+  line-height: 1.45 !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4) !important;
+}
+
+.claude-starters button::after {
+  content: "→";
+  color: #38bdf8 !important;
+  font-size: 20px !important;
+  margin-left: auto !important;
+}
+
+.claude-starters button:nth-child(even)::after {
+  color: #c084fc !important;
+}
+
+/* ==========================================================================
+   ELEVATED DESIGN ARCHITECTURE & FLOATING DOCK
+   ========================================================================== */
+
+.synteopix-neural-status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255, 255, 255, 0.65);
+  border: 1px solid rgba(255, 255, 255, 0.95);
+  border-radius: 20px;
+  padding: 4px 10px;
+  font-size: 11px;
+  font-weight: 700;
+  color: #0369a1;
+  box-shadow: 0 4px 12px rgba(2, 132, 199, 0.12);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+}
+
+.synteopix-pulse-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #10b981;
+  box-shadow: 0 0 8px #10b981;
+  animation: synteopixPulse 1.8s infinite;
+}
+
+@keyframes synteopixPulse {
+  0% { transform: scale(0.95); opacity: 0.8; }
+  50% { transform: scale(1.3); opacity: 1; box-shadow: 0 0 12px #10b981; }
+  100% { transform: scale(0.95); opacity: 0.8; }
+}
+
+/* Floating Glass Bottom Navigation Dock */
+.synteopix-floating-bottom-dock {
+  position: fixed;
+  bottom: 14px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255, 255, 255, 0.72) !important;
+  backdrop-filter: blur(30px) saturate(200%) !important;
+  -webkit-backdrop-filter: blur(30px) saturate(200%) !important;
+  border: 1.8px solid rgba(255, 255, 255, 0.95) !important;
+  border-radius: 36px !important;
+  padding: 6px 10px !important;
+  box-shadow: 0 16px 40px rgba(100, 150, 225, 0.3), inset 0 2px 5px #ffffff !important;
+  z-index: 999;
+  max-width: calc(100vw - 28px);
+}
+
+.synteopix-dock-tab-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: transparent;
+  border: none;
+  border-radius: 24px;
+  padding: 8px 14px;
+  color: #475569;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  white-space: nowrap;
+}
+
+.synteopix-dock-tab-btn:hover {
+  background: rgba(255, 255, 255, 0.6);
+  color: #0284c7;
+  transform: translateY(-2px);
+}
+
+.synteopix-dock-tab-btn.active {
+  background: radial-gradient(circle at 40% 30%, #38bdf8 0%, #0284c7 60%, #0369a1 100%) !important;
+  color: #ffffff !important;
+  box-shadow: 0 6px 18px rgba(2, 132, 199, 0.35), inset 0 1px 3px rgba(255, 255, 255, 0.6) !important;
+  transform: translateY(-1px);
+}
+
+.synteopix-dock-icon {
+  font-size: 15px;
+}
+
+/* Assistant Message Interactive Actions */
+.synteopix-msg-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 10px;
+  flex-wrap: wrap;
+}
+
+.synteopix-action-chip-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: rgba(255, 255, 255, 0.75);
+  border: 1.2px solid rgba(255, 255, 255, 0.95);
+  border-radius: 14px;
+  padding: 4px 10px;
+  font-size: 11px;
+  font-weight: 600;
+  color: #0284c7;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  box-shadow: 0 3px 8px rgba(100, 150, 220, 0.12);
+}
+
+.synteopix-action-chip-btn:hover {
+  background: #ffffff;
+  color: #0369a1;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(100, 150, 220, 0.22);
+}
+
+.synteopix-action-chip-btn.primary {
+  background: linear-gradient(135deg, #0284c7, #2563eb);
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 4px 14px rgba(2, 132, 199, 0.3);
+}
+
+.synteopix-action-chip-btn.primary:hover {
+  background: linear-gradient(135deg, #0369a1, #1d4ed8);
+  box-shadow: 0 6px 18px rgba(2, 132, 199, 0.45);
+}
+
+/* ==========================================================================
+   DRAWER CATEGORIES & SECTION TITLES
+   ========================================================================== */
+
+.synteopix-drawer-section-title {
+  font-size: 10px !important;
+  font-weight: 800 !important;
+  letter-spacing: 1.2px !important;
+  color: #0369a1 !important;
+  padding: 8px 16px 4px !important;
+  text-transform: uppercase !important;
+  opacity: 0.85;
+}
+
+/* ==========================================================================
+   macOS DARK ACRYLIC GLASS TERMINAL & LIVE BUILD ROOM
+   ========================================================================== */
+
+.synteopix-build-view-toggle {
+  display: flex;
+  background: rgba(0, 0, 0, 0.08);
+  border-radius: 12px;
+  padding: 3px;
+  gap: 3px;
+}
+
+.synteopix-build-view-toggle button {
+  background: transparent;
+  border: none;
+  border-radius: 9px;
+  padding: 5px 10px;
+  font-size: 11px;
+  font-weight: 700;
+  color: #475569;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.synteopix-build-view-toggle button.active {
+  background: #ffffff;
+  color: #0284c7;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+}
+
+.synteopix-terminal-window {
+  background: #0d1520 !important;
+  border: 1.5px solid rgba(255, 255, 255, 0.15);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45), inset 0 1px 2px rgba(255, 255, 255, 0.1);
+  margin-top: 8px;
+}
+
+.synteopix-terminal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 14px;
+  background: rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.synteopix-traffic-lights {
+  display: flex;
+  gap: 6px;
+}
+
+.synteopix-traffic-lights .dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.synteopix-traffic-lights .dot.red { background: #ef4444; }
+.synteopix-traffic-lights .dot.yellow { background: #eab308; }
+.synteopix-traffic-lights .dot.green { background: #22c55e; }
+
+.synteopix-terminal-title {
+  font-family: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace;
+  font-size: 11px;
+  color: #94a3b8;
+  font-weight: 600;
+}
+
+.synteopix-terminal-copy-btn {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  padding: 3px 8px;
+  font-size: 10px;
+  color: #38bdf8;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.synteopix-terminal-copy-btn:hover {
+  background: rgba(56, 189, 248, 0.2);
+  color: #ffffff;
+}
+
+.synteopix-terminal-body {
+  padding: 14px 16px;
+  font-family: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace;
+  font-size: 12px;
+  line-height: 1.6;
+  max-height: 280px;
+  overflow-y: auto;
+  color: #f1f5f9;
+}
+
+.synteopix-log-line {
+  margin-bottom: 6px;
+  word-break: break-all;
+}
+
+.synteopix-log-line .prompt { color: #38bdf8; font-weight: 700; margin-right: 6px; }
+.synteopix-log-line .cmd { color: #ffffff; font-weight: 600; }
+.synteopix-log-line.dim { color: #64748b; font-size: 11px; }
+.synteopix-log-line.success { color: #34d399; }
+.synteopix-log-line.active { color: #60a5fa; }
+.synteopix-log-line .time { color: #475569; font-size: 10px; margin-right: 6px; }
+.synteopix-log-line .agent { color: #a78bfa; font-weight: 700; margin-right: 6px; }
+.synteopix-log-line .cursor {
+  display: inline-block;
+  color: #38bdf8;
+  animation: synteopixBlink 1s infinite;
+}
+
+@keyframes synteopixBlink {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+
+/* ==========================================================================
+   FUTURISTIC 3D RADIANT CRYSTAL NEXUS LOGO BADGE
+   ========================================================================== */
+
+.synteopix-glass-logo-badge {
+  width: 48px !important;
+  height: 48px !important;
+  border-radius: 50% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background: radial-gradient(circle at 30% 25%, #ffffff 0%, #bae6fd 40%, #38bdf8 70%, #0284c7 100%) !important;
+  border: 2px solid rgba(255, 255, 255, 0.95) !important;
+  box-shadow: 0 10px 24px rgba(2, 132, 199, 0.35),
+              inset 0 3px 6px #ffffff,
+              inset 0 -4px 10px rgba(3, 105, 161, 0.5) !important;
+  position: relative !important;
+  flex-shrink: 0;
+  animation: synteopixLogoGlow 3s ease-in-out infinite alternate;
+}
+
+@keyframes synteopixLogoGlow {
+  0% { box-shadow: 0 10px 24px rgba(2, 132, 199, 0.3), inset 0 3px 6px #ffffff; }
+  100% { box-shadow: 0 14px 32px rgba(56, 189, 248, 0.5), inset 0 4px 8px #ffffff; }
+}
+
+.synteopix-s-letter {
+  font-family: 'Outfit', 'Inter', sans-serif !important;
+  font-weight: 900 !important;
+  font-size: 26px !important;
+  color: #ffffff !important;
+  text-shadow: 0 2px 8px rgba(3, 105, 161, 0.6), 0 0 14px rgba(255, 255, 255, 0.8) !important;
+}
+
+/* ==========================================================================
+   FROSTED LIQUID-GLASS LOGIN SCREEN THEME
+   ========================================================================== */
+
+.admin-login-v5 {
+  background:
+    radial-gradient(circle at 20% 15%, rgba(186, 230, 253, 0.65), transparent 45%),
+    radial-gradient(circle at 80% 85%, rgba(224, 242, 254, 0.7), transparent 50%),
+    radial-gradient(circle at 50% 50%, rgba(240, 249, 255, 0.9), transparent 70%),
+    linear-gradient(145deg, #f0f7ff 0%, #e0f0fe 50%, #dbeafe 100%) !important;
+  min-height: 100dvh !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 20px !important;
+}
+
+.synteopix-glass-login-card {
+  position: relative !important;
+  width: 100% !important;
+  max-width: 440px !important;
+  background: rgba(255, 255, 255, 0.75) !important;
+  backdrop-filter: blur(40px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(40px) saturate(180%) !important;
+  border: 2px solid rgba(255, 255, 255, 0.95) !important;
+  border-radius: 32px !important;
+  padding: 36px 30px !important;
+  box-shadow: 0 24px 60px rgba(2, 132, 199, 0.16),
+              0 4px 18px rgba(0, 0, 0, 0.04),
+              inset 0 2px 4px #ffffff !important;
+  text-align: center !important;
+}
+
+.synteopix-glass-login-card .admin-logo-v5 {
+  width: auto !important;
+  height: auto !important;
+  aspect-ratio: auto !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  display: flex !important;
+  justify-content: center !important;
+  margin: 0 auto 14px !important;
+}
+
+.synteopix-glass-login-card h1 {
+  font-family: 'Outfit', 'Inter', sans-serif !important;
+  font-size: 22px !important;
+  font-weight: 800 !important;
+  color: #0f172a !important;
+  margin: 6px 0 !important;
+  letter-spacing: -0.5px !important;
+}
+
+.synteopix-glass-login-card label {
+  display: block !important;
+  text-align: left !important;
+  font-size: 12px !important;
+  font-weight: 700 !important;
+  color: #475569 !important;
+  margin-bottom: 14px !important;
+}
+
+.synteopix-glass-login-card input {
+  width: 100% !important;
+  margin-top: 6px !important;
+  padding: 13px 16px !important;
+  border-radius: 16px !important;
+  background: rgba(255, 255, 255, 0.85) !important;
+  border: 1.5px solid rgba(186, 230, 253, 0.8) !important;
+  font-size: 14px !important;
+  color: #0f172a !important;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.03) !important;
+  transition: all 0.2s ease !important;
+  box-sizing: border-box !important;
+}
+
+.synteopix-glass-login-card input:focus {
+  outline: none !important;
+  border-color: #0284c7 !important;
+  background: #ffffff !important;
+  box-shadow: 0 0 0 4px rgba(2, 132, 199, 0.15) !important;
+}
+
+.synteopix-glass-login-card .admin-primary-v5 {
+  width: 100% !important;
+  padding: 14px !important;
+  border-radius: 18px !important;
+  background: linear-gradient(135deg, #0284c7, #2563eb) !important;
+  color: #ffffff !important;
+  border: none !important;
+  font-size: 15px !important;
+  font-weight: 800 !important;
+  cursor: pointer !important;
+  box-shadow: 0 8px 24px rgba(2, 132, 199, 0.35) !important;
+  transition: all 0.2s ease !important;
+  margin-top: 10px !important;
+}
+
+.synteopix-glass-login-card .admin-primary-v5:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 12px 30px rgba(2, 132, 199, 0.45) !important;
+}
+
+.synteopix-glass-login-card .admin-error-v5 {
+  background: #fef2f2 !important;
+  border: 1px solid #fecaca !important;
+  color: #b91c1c !important;
+  padding: 10px 14px !important;
+  border-radius: 12px !important;
+  font-size: 12px !important;
+  margin-top: 14px !important;
+}
+
+.quantora-login-footer-notice {
+  text-align: center !important;
+  margin-top: 18px !important;
+  font-size: 12px !important;
+  color: #475569 !important;
+  line-height: 1.6 !important;
+}
+
+.quantora-login-footer-notice strong {
+  color: #0f172a !important;
+  font-weight: 800 !important;
+}
+
+.quantora-privacy-inline-link {
+  all: unset !important;
+  display: inline !important;
+  color: #0284c7 !important;
+  font-weight: 800 !important;
+  text-decoration: underline !important;
+  cursor: pointer !important;
+  background: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  font-size: inherit !important;
+  line-height: inherit !important;
+  letter-spacing: normal !important;
+}
+
+.quantora-privacy-inline-link:hover {
+  color: #0369a1 !important;
+}
+
+/* ==========================================================================
+   QUANTORA MODEL SWITCHER BUTTON & MODAL
+   ========================================================================== */
+
+.synteopix-model-switch-btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  background: rgba(255, 255, 255, 0.75) !important;
+  backdrop-filter: blur(25px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(25px) saturate(180%) !important;
+  border: 1.5px solid rgba(255, 255, 255, 0.95) !important;
+  border-radius: 9999px !important;
+  padding: 4px 12px 4px 6px !important;
+  box-shadow: 0 4px 16px rgba(2, 132, 199, 0.15), inset 0 1px 3px #ffffff !important;
+  cursor: pointer !important;
+  transition: all 0.18s ease !important;
+}
+
+.synteopix-model-switch-btn:hover {
+  transform: translateY(-1px) scale(1.03) !important;
+  background: rgba(255, 255, 255, 0.92) !important;
+  box-shadow: 0 6px 20px rgba(2, 132, 199, 0.25) !important;
+}
+
+.synteopix-model-switch-btn .model-icon-badge {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  color: #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  flex-shrink: 0;
+}
+
+.synteopix-model-switch-btn .model-name-group {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.synteopix-model-switch-btn .model-current-name {
+  font-size: 12px !important;
+  font-weight: 800 !important;
+  color: #0f172a !important;
+  line-height: 1.15 !important;
+}
+
+.synteopix-model-switch-btn .model-current-role {
+  font-size: 9.5px !important;
+  font-weight: 700 !important;
+  color: #0284c7 !important;
+  letter-spacing: 0.4px !important;
+  text-transform: uppercase !important;
+}
+
+.synteopix-model-switch-btn .model-arrow {
+  font-size: 11px;
+  color: #64748b;
+  margin-left: 2px;
+}
+
+/* Modal Backdrop */
+.quantora-model-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 120;
+  display: grid;
+  place-items: center;
+  padding: 16px;
+  background: rgba(15, 23, 42, 0.45);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  animation: modalFadeIn 0.2s ease-out;
+}
+
+@keyframes modalFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.quantora-model-modal-card {
+  width: min(580px, 100%);
+  max-height: 90vh;
+  overflow-y: auto;
+  background: rgba(255, 255, 255, 0.92) !important;
+  backdrop-filter: blur(35px) saturate(200%) !important;
+  -webkit-backdrop-filter: blur(35px) saturate(200%) !important;
+  border: 2px solid rgba(255, 255, 255, 0.98) !important;
+  border-radius: 28px !important;
+  box-shadow: 0 24px 60px rgba(15, 23, 42, 0.25), 0 6px 20px rgba(0, 0, 0, 0.08), inset 0 2px 6px #ffffff !important;
+  padding: 24px !important;
+  animation: modalScaleIn 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes modalScaleIn {
+  from { opacity: 0; transform: scale(0.94) translateY(10px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.model-modal-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid rgba(2, 132, 199, 0.12);
+}
+
+.model-modal-header .badge-chip {
+  font-size: 10px;
+  font-weight: 850;
+  color: #0284c7;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.model-modal-header h2 {
+  font-size: 22px;
+  font-weight: 900;
+  color: #0f172a;
+  margin: 0 0 2px;
+  letter-spacing: -0.5px;
+}
+
+.model-modal-header p {
+  font-size: 12px;
+  color: #64748b;
+  margin: 0;
+  font-weight: 500;
+}
+
+.model-modal-close {
+  width: 34px !important;
+  height: 34px !important;
+  border-radius: 50% !important;
+  background: rgba(15, 23, 42, 0.06) !important;
+  border: 1px solid rgba(15, 23, 42, 0.1) !important;
+  color: #0f172a !important;
+  font-size: 14px !important;
+  font-weight: 800 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  cursor: pointer !important;
+  transition: all 0.15s ease !important;
+}
+
+.model-modal-close:hover {
+  background: rgba(239, 68, 68, 0.15) !important;
+  color: #ef4444 !important;
+  transform: scale(1.08);
+}
+
+.model-cards-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.quantora-model-card {
+  padding: 16px 18px !important;
+  border-radius: 20px !important;
+  background: rgba(255, 255, 255, 0.8) !important;
+  border: 1.8px solid rgba(226, 232, 240, 0.9) !important;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.03) !important;
+  cursor: pointer !important;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.quantora-model-card:hover {
+  transform: translateY(-2px) scale(1.01) !important;
+  background: #ffffff !important;
+  box-shadow: 0 10px 28px rgba(2, 132, 199, 0.15) !important;
+}
+
+.quantora-model-card.active {
+  background: #ffffff !important;
+  border-width: 2px !important;
+  box-shadow: 0 12px 32px rgba(2, 132, 199, 0.2), inset 0 2px 4px #ffffff !important;
+}
+
+.card-top-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.icon-with-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.model-card-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  flex-shrink: 0;
+}
+
+.model-title {
+  font-size: 16px;
+  font-weight: 850;
+  color: #0f172a;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.model-role-badge {
+  display: inline-block;
+  font-size: 10.5px;
+  font-weight: 800;
+  padding: 2px 8px;
+  border-radius: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  margin-top: 3px;
+}
+
+.active-tag {
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 800;
+  padding: 4px 10px;
+  border-radius: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.select-tag {
+  color: #0284c7;
+  font-size: 12px;
+  font-weight: 750;
+  background: rgba(2, 132, 199, 0.08);
+  padding: 4px 10px;
+  border-radius: 20px;
+  transition: all 0.15s ease;
+}
+
+.quantora-model-card:hover .select-tag {
+  background: #0284c7;
+  color: #ffffff;
+}
+
+.model-tagline {
+  font-size: 12.5px;
+  font-weight: 700;
+  color: #1e293b;
+  margin: 0 0 4px;
+}
+
+.model-description {
+  font-size: 12px;
+  color: #475569;
+  line-height: 1.45;
+  margin: 0 0 10px;
+}
+
+.model-specs-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.spec-item {
+  font-size: 11px;
+  font-weight: 700;
+  color: #64748b;
+  background: #f1f5f9;
+  padding: 3px 8px;
+  border-radius: 6px;
+}
+
+/* ==========================================================================
+   CLEAN RESPONSIVE FIXES
+   ========================================================================== */
+
+@media (max-width: 600px) {
+  .synteopix-title {
+    font-size: 17px !important;
+  }
+  .synteopix-welcome-headline {
+    font-size: 22px !important;
+  }
+  .synteopix-starters-grid {
+    grid-template-columns: 1fr;
+  }
+  .synteopix-floating-pill-composer {
+    border-radius: 28px !important;
+  }
+  .synteopix-glass-login-card {
+    padding: 26px 20px !important;
+    border-radius: 24px !important;
+  }
+}

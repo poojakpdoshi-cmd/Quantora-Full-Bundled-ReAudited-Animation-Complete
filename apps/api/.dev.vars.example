@@ -1,0 +1,35 @@
+SUPABASE_URL=https://YOUR-PROJECT.supabase.co
+SUPABASE_SERVICE_ROLE_KEY=YOUR_SUPABASE_SERVICE_ROLE_KEY
+ADMIN_USERNAME=Poojak@King
+# Leave these blank to use the secure built-in hash for the requested password.
+ADMIN_PASSWORD_SALT=
+ADMIN_PASSWORD_HASH=
+ADMIN_PASSWORD_ITERATIONS=60000
+PUBLIC_API_BASE_URL=http://localhost:8787
+GEMINI_API_KEY=
+GEMINI_MODEL=
+QA_PROVIDER=cloudflare
+CLOUDFLARE_QA_MODEL=@cf/meta/llama-3.1-8b-instruct-fast
+GITHUB_CLIENT_ID=
+GITHUB_CLIENT_SECRET=
+GITHUB_REDIRECT_URI=http://localhost:8787/integrations/github/callback
+VERCEL_CLIENT_ID=
+VERCEL_CLIENT_SECRET=
+VERCEL_REDIRECT_URI=http://localhost:8787/integrations/vercel/callback
+VERCEL_INTEGRATION_SLUG=
+FIREBASE_CLIENT_ID=
+FIREBASE_CLIENT_SECRET=
+FIREBASE_REDIRECT_URI=http://localhost:8787/integrations/firebase/callback
+OAUTH_ALLOWED_ORIGINS=http://localhost:5173
+TOKEN_ENCRYPTION_KEY=
+# Official Quantora Gmail OAuth2 Credentials
+GMAIL_CLIENT_ID=
+GMAIL_CLIENT_SECRET=
+GMAIL_REFRESH_TOKEN=
+GMAIL_USER_EMAIL=quantoraby.quantacy@gmail.com
+# Google Search Console OAuth; keep client secret server-side.
+GOOGLE_SEARCH_CONSOLE_CLIENT_ID=
+GOOGLE_SEARCH_CONSOLE_CLIENT_SECRET=
+GOOGLE_SEARCH_CONSOLE_REDIRECT_URI=http://localhost:8787/auth/google/search-console/callback
+EMAIL_PROVIDER=gmail
+ENVIRONMENT=development

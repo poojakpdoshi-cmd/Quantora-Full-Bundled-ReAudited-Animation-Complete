@@ -1,0 +1,28 @@
+name = "website-maker-ai-api"
+main = "src/index.ts"
+compatibility_date = "2026-07-01"
+workers_dev = true
+
+[vars]
+APP_NAME = "Quantora"
+PUBLIC_API_BASE_URL = "https://website-maker-ai-api.poojakpdoshi.workers.dev"
+
+QA_PROVIDER = "cloudflare"
+# Fast, low-latency Workers AI model for ordinary Q&A.
+CLOUDFLARE_QA_MODEL = "@cf/meta/llama-3.1-8b-instruct-fast"
+
+GROQ_CODER_MODEL = "openai/gpt-oss-120b"
+GROQ_REVIEWER_MODEL = "qwen/qwen3-32b"
+CLOUDFLARE_REPAIR_MODEL = "@cf/qwen/qwen3-30b-a3b-fp8"
+# Set this to the private HTTPS URL of apps/build-worker before enabling production APK builds.
+APK_BUILD_SERVICE_URL = ""
+# Store APK_BUILD_SERVICE_TOKEN with `wrangler secret put`; do not place it in this file.
+# Search Console OAuth client values must be stored as Worker secrets, never in this file.
+GOOGLE_SEARCH_CONSOLE_REDIRECT_URI = "https://website-maker-ai-api.poojakpdoshi.workers.dev/auth/google/search-console/callback"
+GMAIL_USER_EMAIL = "quantoraby.quantacy@gmail.com"
+ENVIRONMENT = "production"
+[ai]
+binding = "AI"
+
+[triggers]
+crons = ["*/5 * * * *"]

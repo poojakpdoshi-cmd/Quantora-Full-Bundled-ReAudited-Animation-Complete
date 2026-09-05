@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Quantora</string>
+    <string name="title_activity_main">Quantora</string>
+    <string name="package_name">com.poojak.webforgeai</string>
+    <string name="custom_url_scheme">com.poojak.webforgeai</string>
+</resources>

@@ -1,0 +1,29 @@
+{
+  "name": "@wmai/api",
+  "private": true,
+  "version": "2.2.0",
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev",
+    "build": "wrangler deploy --dry-run",
+    "deploy": "wrangler deploy",
+    "typecheck": "tsc --noEmit",
+    "test:fullstack-policy": "node scripts/test-fullstack-policy.cjs",
+    "test:fullstack-files": "node scripts/test-fullstack-file-paths.cjs",
+    "test:delivery-flow": "node scripts/test-project-delivery-flow.cjs",
+    "test:thinkmax": "node scripts/test-thinkmax.cjs"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.52.0",
+    "@wmai/ai-brain": "file:../../packages/ai-brain",
+    "@wmai/shared": "file:../../packages/shared",
+    "@wmai/template-engine": "file:../../packages/template-engine",
+    "hono": "^4.12.34",
+    "zod": "^3.25.76"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "5.20260710.1",
+    "typescript": "^5.8.3",
+    "wrangler": "4.110.0"
+  }
+}

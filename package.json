@@ -1,0 +1,42 @@
+{
+  "name": "website-maker-ai-v3-apk",
+  "private": true,
+  "version": "3.0.0",
+  "workspaces": [
+    "apps/mobile",
+    "apps/admin",
+    "apps/api-node",
+    "apps/build-worker",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev:mobile": "npm run dev -w @wmai/mobile",
+    "dev:admin": "npm run dev -w @wmai/admin",
+    "build": "npm run build -w @wmai/mobile && npm run build -w @wmai/admin",
+    "build:api": "npm --prefix apps/api ci && npm --prefix apps/api run build",
+    "typecheck": "npm run typecheck -w @wmai/mobile && npm run typecheck -w @wmai/admin && npm run typecheck -w @wmai/api-node",
+    "typecheck:api": "npm --prefix apps/api run typecheck",
+    "typecheck:build-worker": "npm --prefix apps/build-worker run typecheck",
+    "test": "tsx scripts/smoke-test.ts && tsx scripts/generation-chat-regression.ts && tsx scripts/nexora-production-regression.ts && tsx scripts/nexora-secure-flows-regression.ts && tsx scripts/duration-format-regression.ts && tsx scripts/auth-regression.ts && tsx scripts/admin-routing-regression.ts && tsx scripts/thinkmax-layout-regression.ts && tsx scripts/apk-build-proxy-regression.ts && tsx scripts/real-apk-ui-regression.ts && tsx scripts/search-console-regression.ts && tsx scripts/making-animation-regression.ts",
+    "test:nexora-production": "tsx scripts/nexora-production-regression.ts",
+    "test:nexora-secure-flows": "tsx scripts/nexora-secure-flows-regression.ts && tsx scripts/duration-format-regression.ts",
+    "test:admin-auth": "tsx scripts/auth-regression.ts --admin-only",
+    "test:admin-routing": "tsx scripts/admin-routing-regression.ts",
+    "test:auth": "tsx scripts/auth-regression.ts",
+    "test:thinkmax-layout": "tsx scripts/thinkmax-layout-regression.ts",
+    "test:apk-build-proxy": "tsx scripts/apk-build-proxy-regression.ts",
+    "test:real-apk-ui": "tsx scripts/real-apk-ui-regression.ts",
+    "test:search-console": "tsx scripts/search-console-regression.ts",
+    "test:making-animation": "tsx scripts/making-animation-regression.ts",
+    "termux:check": "npm run typecheck && npm test && npm run build",
+    "dev:api": "npm run dev -w @wmai/api-node",
+    "start:api": "npm run start -w @wmai/api-node"
+  },
+  "devDependencies": {
+    "adm-zip": "^0.5.16",
+    "archiver": "^7.0.1",
+    "concurrently": "^9.1.2",
+    "tsx": "^4.20.3",
+    "wrangler": "4.110.0"
+  }
+}

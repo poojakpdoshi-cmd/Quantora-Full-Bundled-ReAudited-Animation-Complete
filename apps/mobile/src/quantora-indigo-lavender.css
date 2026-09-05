@@ -1,0 +1,682 @@
+/* Quantora Indigo Lavender — production visual system */
+:root {
+  color-scheme: light;
+  --quantora-canvas: #eef0ff;
+  --quantora-surface: #ffffff;
+  --quantora-surface-soft: #f7f8ff;
+  --quantora-surface-muted: #e7e9fb;
+  --quantora-ink: #252a67;
+  --quantora-ink-strong: #171a4d;
+  --quantora-muted: #6b729c;
+  --quantora-indigo: #4f46e5;
+  --quantora-indigo-strong: #3730a3;
+  --quantora-lavender: #c4b5fd;
+  --quantora-lavender-soft: #ede9fe;
+  --quantora-coral: #fb7185;
+  --quantora-green: #2f8f61;
+  --quantora-green-soft: #e9f8ef;
+  --quantora-border: #d6d9f1;
+  --quantora-shadow: 0 16px 42px rgba(57, 64, 143, .12);
+  --quantora-radius-sm: 10px;
+  --quantora-radius-md: 14px;
+  --quantora-radius-lg: 18px;
+  --quantora-control-height: 48px;
+  --quantora-font: "Plus Jakarta Sans", Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --quantora-mono: "IBM Plex Mono", "SFMono-Regular", Consolas, monospace;
+
+  /* Existing feature styles continue to work through these aliases. */
+  --nx-bg: var(--quantora-canvas);
+  --nx-bg-deep: #e7e9fb;
+  --nx-surface: var(--quantora-surface);
+  --nx-surface-strong: var(--quantora-surface);
+  --nx-surface-soft: var(--quantora-surface-soft);
+  --nx-surface-raised: var(--quantora-surface);
+  --nx-text: var(--quantora-ink);
+  --nx-text-soft: #4c5288;
+  --nx-muted: var(--quantora-muted);
+  --nx-border: var(--quantora-border);
+  --nx-border-strong: var(--quantora-indigo);
+  --nx-cyan: var(--quantora-indigo);
+  --nx-blue: var(--quantora-indigo);
+  --nx-violet: var(--quantora-indigo);
+  --nx-purple: #7c3aed;
+  --nx-success: var(--quantora-green);
+  --nx-warning: #c46b2a;
+  --nx-danger: #d84760;
+  --nx-info: var(--quantora-indigo);
+  --nx-focus: var(--quantora-indigo);
+  --nx-accent: var(--quantora-indigo);
+  --nx-accent-contrast: #ffffff;
+  --nx-radius-xs: var(--quantora-radius-sm);
+  --nx-radius-sm: var(--quantora-radius-sm);
+  --nx-radius-md: var(--quantora-radius-md);
+  --nx-radius-lg: var(--quantora-radius-lg);
+  --nx-radius-xl: 24px;
+  --nx-shadow-soft: var(--quantora-shadow);
+  --nx-shadow-panel: var(--quantora-shadow);
+  --nx-glow: 0 0 0 3px rgba(79, 70, 229, .12);
+  --nx-font: var(--quantora-font);
+  --wf-bg: var(--quantora-canvas);
+  --wf-panel: var(--quantora-surface);
+  --wf-card: var(--quantora-surface);
+  --wf-soft: var(--quantora-surface-soft);
+  --wf-border: var(--quantora-border);
+  --wf-text: var(--quantora-ink);
+  --wf-muted: var(--quantora-muted);
+  --wf-accent: var(--quantora-indigo);
+}
+
+html,
+body {
+  background: var(--quantora-canvas) !important;
+  color: var(--quantora-ink) !important;
+}
+
+body {
+  background:
+    radial-gradient(circle at 100% 0%, rgba(196, 181, 253, .28), transparent 30%),
+    radial-gradient(circle at 0% 100%, rgba(79, 70, 229, .08), transparent 28%),
+    var(--quantora-canvas) !important;
+  font-family: var(--quantora-font) !important;
+}
+
+body,
+button,
+input,
+textarea,
+select {
+  font-family: var(--quantora-font) !important;
+}
+
+h1,
+h2,
+h3,
+h4,
+strong {
+  color: var(--quantora-ink-strong) !important;
+}
+
+p,
+.muted,
+.tiny {
+  color: var(--quantora-muted) !important;
+}
+
+.eyebrow,
+.admin-kicker-v5,
+.admin-section-label-v5 {
+  color: var(--quantora-indigo) !important;
+}
+
+a {
+  color: var(--quantora-indigo) !important;
+}
+
+.login-shell {
+  background: transparent !important;
+}
+
+.login-card,
+.panel,
+.template-card,
+.capability-card,
+.analytics-grid article,
+.analytics-chart-card,
+.analytics-types-card,
+.connection-grid article,
+.project-list article,
+.account-grid article,
+.account-password-card,
+.token-wallet-card,
+.cms-sidebar,
+.cms-editor,
+.cms-seo-card,
+.cms-revisions,
+.cms-visual-fields,
+.cms-media-library-modal,
+.cms-draft-preview,
+.cms-schedule-card,
+.nx-glass {
+  border: 1px solid var(--quantora-border) !important;
+  background: var(--quantora-surface) !important;
+  box-shadow: var(--quantora-shadow) !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+.login-card {
+  border-radius: var(--quantora-radius-lg) !important;
+  color: var(--quantora-ink) !important;
+}
+
+.brand-mark {
+  border-radius: 16px !important;
+  background: var(--quantora-indigo) !important;
+  color: #ffffff !important;
+}
+
+input,
+textarea,
+select,
+.nx-input {
+  min-height: var(--quantora-control-height);
+  border: 1px solid var(--quantora-border) !important;
+  border-radius: var(--quantora-radius-sm) !important;
+  background: var(--quantora-surface-soft) !important;
+  color: var(--quantora-ink-strong) !important;
+  box-shadow: none !important;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #8a90b5 !important;
+}
+
+input:focus,
+textarea:focus,
+select:focus,
+.nx-input:focus {
+  border-color: var(--quantora-indigo) !important;
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, .14) !important;
+}
+
+label {
+  color: #4c5288 !important;
+}
+
+button {
+  border: 1px solid transparent;
+  border-radius: var(--quantora-radius-sm) !important;
+  background: var(--quantora-surface-muted) !important;
+  color: var(--quantora-ink) !important;
+  box-shadow: none !important;
+}
+
+button:hover {
+  filter: brightness(.98);
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 3px solid rgba(79, 70, 229, .2) !important;
+  outline-offset: 2px;
+}
+
+button.primary,
+.primary,
+form button,
+button[type="submit"] {
+  background: var(--quantora-indigo) !important;
+  color: #ffffff !important;
+}
+
+button.primary:hover,
+.primary:hover,
+form button:hover,
+button[type="submit"]:hover {
+  background: var(--quantora-indigo-strong) !important;
+}
+
+button:disabled {
+  background: var(--quantora-surface-muted) !important;
+  color: #9599bb !important;
+}
+
+.pill,
+.chips span,
+.draft {
+  border: 1px solid var(--quantora-border) !important;
+  background: var(--quantora-lavender-soft) !important;
+  color: var(--quantora-indigo-strong) !important;
+}
+
+.notice,
+.notice-wide {
+  border: 1px solid #e8c5ad !important;
+  background: #fff5ee !important;
+  color: #8b4a26 !important;
+}
+
+.success {
+  color: var(--quantora-green) !important;
+}
+
+.logout {
+  background: #fff0f2 !important;
+  color: var(--quantora-coral) !important;
+  border-color: #f5c2cc !important;
+}
+
+nav {
+  border: 1px solid var(--quantora-border) !important;
+  background: rgba(255, 255, 255, .72) !important;
+  border-radius: var(--quantora-radius-md) !important;
+  box-shadow: none !important;
+}
+
+nav button {
+  color: var(--quantora-muted) !important;
+  background: transparent !important;
+}
+
+nav button.active {
+  background: var(--quantora-indigo) !important;
+  color: #ffffff !important;
+}
+
+iframe {
+  border: 1px solid var(--quantora-border) !important;
+  border-radius: var(--quantora-radius-md) !important;
+  background: #ffffff !important;
+}
+
+footer {
+  color: var(--quantora-muted) !important;
+}
+
+.admin-entry {
+  border: 1px solid #b8e2c8 !important;
+  background: var(--quantora-green-soft) !important;
+}
+
+.admin-entry strong {
+  color: var(--quantora-green) !important;
+}
+
+.admin-entry button {
+  background: var(--quantora-green) !important;
+  color: #ffffff !important;
+}
+
+.editor-box,
+.connection-grid article,
+.account-grid article,
+.project-list article,
+.admin-cards article {
+  background: var(--quantora-surface-soft) !important;
+  border-color: var(--quantora-border) !important;
+}
+
+.analytics-bar-track {
+  background: var(--quantora-surface-muted) !important;
+}
+
+.analytics-bar-track span {
+  background: linear-gradient(180deg, #818cf8, var(--quantora-indigo)) !important;
+}
+
+/* Browser workspace: keep the verification room distinct and calm. */
+.browser-studio,
+.browser-workspace {
+  color: var(--quantora-ink) !important;
+}
+
+.browser-studio .browser-address,
+.browser-workspace .browser-address {
+  background: var(--quantora-surface-soft) !important;
+  border: 1px solid var(--quantora-border) !important;
+  color: var(--quantora-ink-strong) !important;
+}
+
+.browser-studio .browser-primary,
+.browser-workspace .browser-primary {
+  background: var(--quantora-indigo) !important;
+  color: #ffffff !important;
+}
+
+/* AI proposal surfaces use lavender only; they should never compete with primary actions. */
+.ai-proposal,
+.ai-suggestion,
+[data-ai="true"] {
+  background: var(--quantora-lavender-soft) !important;
+  border-color: var(--quantora-lavender) !important;
+  color: var(--quantora-indigo-strong) !important;
+}
+
+.search-console-panel {
+  margin: 0 0 18px;
+  padding: 18px;
+  border: 1px solid var(--quantora-border);
+  border-radius: var(--quantora-radius-md);
+  background: linear-gradient(135deg, var(--quantora-surface), var(--quantora-surface-soft));
+  color: var(--quantora-ink);
+}
+.search-console-heading,
+.search-console-tool-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+.search-console-kicker {
+  color: var(--quantora-indigo);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .1em;
+}
+.search-console-panel h3,
+.search-console-panel h4 {
+  margin: 5px 0 6px;
+  color: var(--quantora-ink-strong) !important;
+}
+.search-console-panel p,
+.search-console-muted {
+  color: var(--quantora-muted) !important;
+  font-size: 12px;
+  line-height: 1.55;
+}
+.search-console-buttons,
+.search-console-toolbar,
+.search-console-date-row {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.search-console-panel button {
+  min-height: 42px;
+  padding: 9px 13px;
+  background: var(--quantora-indigo) !important;
+  color: #ffffff !important;
+  font-weight: 700;
+}
+.search-console-panel button.secondary {
+  background: var(--quantora-lavender-soft) !important;
+  color: var(--quantora-indigo-strong) !important;
+  border-color: var(--quantora-border) !important;
+}
+.search-console-status-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 9px;
+  margin-top: 15px;
+}
+.search-console-status-grid > div,
+.search-console-tool {
+  min-width: 0;
+  padding: 13px;
+  border: 1px solid var(--quantora-border);
+  border-radius: var(--quantora-radius-sm);
+  background: rgba(255,255,255,.72);
+}
+.search-console-status-grid span,
+.search-console-status-grid strong {
+  display: block;
+  overflow-wrap: anywhere;
+}
+.search-console-status-grid span {
+  color: var(--quantora-muted);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+}
+.search-console-status-grid strong {
+  margin-top: 5px;
+  color: var(--quantora-ink-strong) !important;
+  font-size: 13px;
+}
+.search-console-workspace {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid var(--quantora-border);
+}
+.search-console-toolbar select {
+  min-width: min(100%, 360px);
+  flex: 1 1 260px;
+}
+.search-console-tools-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 10px;
+}
+.search-console-tool-wide {
+  grid-column: 1 / -1;
+}
+.search-console-tool label {
+  display: grid;
+  gap: 4px;
+  min-width: 0;
+  flex: 1 1 150px;
+  color: var(--quantora-muted) !important;
+  font-size: 11px;
+  font-weight: 700;
+}
+.search-console-tool input,
+.search-console-tool select {
+  width: 100%;
+  min-width: 0;
+  margin: 7px 0;
+}
+.search-console-results {
+  display: grid;
+  gap: 6px;
+  margin-top: 10px;
+  font-size: 12px;
+}
+.search-console-results > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 7px 0;
+  border-bottom: 1px solid var(--quantora-border);
+}
+.search-console-results > div span:last-child {
+  text-align: right;
+  color: var(--quantora-muted);
+}
+.search-console-json {
+  max-height: 180px;
+  overflow: auto;
+  margin-top: 10px;
+  padding: 10px;
+  border-radius: var(--quantora-radius-sm);
+  background: #111936;
+  color: #dbeafe;
+  font: 11px/1.45 var(--quantora-mono);
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+.search-console-error {
+  margin: 0 0 12px;
+  padding: 10px 12px;
+  border: 1px solid #f3b6c1;
+  border-radius: var(--quantora-radius-sm);
+  background: #fff0f2;
+  color: #a22943;
+  font-size: 12px;
+}
+
+@media (max-width: 640px) {
+  .login-card,
+  .panel {
+    border-radius: var(--quantora-radius-md) !important;
+  }
+
+  nav {
+    gap: 4px !important;
+  }
+
+  nav button {
+    min-height: 44px;
+    padding: 9px 8px !important;
+    font-size: 12px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
+
+/* Feature studios share the Quantora surface; dark code/phone previews remain intentionally scoped. */
+.feature-studio-container,
+.feature-studio-panel {
+  min-width: 0;
+  border: 1px solid var(--quantora-border) !important;
+  background: var(--quantora-surface) !important;
+  color: var(--quantora-ink) !important;
+  box-shadow: var(--quantora-shadow) !important;
+}
+
+.feature-studio-container > *,
+.feature-studio-panel > * {
+  min-width: 0;
+}
+
+.feature-studio-container .feature-subtitle,
+.feature-studio-panel .feature-description,
+.feature-studio-container .input-group span,
+.feature-studio-panel .input-group span {
+  color: var(--quantora-muted) !important;
+}
+
+.feature-studio-container .feature-badge,
+.feature-studio-panel .feature-tag {
+  background: var(--quantora-lavender-soft) !important;
+  border-color: var(--quantora-lavender) !important;
+  color: var(--quantora-indigo-strong) !important;
+}
+
+.feature-studio-container .agency-input-card,
+.feature-studio-container .agency-preview-card,
+.feature-studio-container .commerce-config-card,
+.feature-studio-container .commerce-catalog-card,
+.feature-studio-container .concierge-config-card,
+.feature-studio-container .concierge-preview-card,
+.feature-studio-container .web-to-app-form-card,
+.feature-studio-container .mobile-phone-mockup-card {
+  min-width: 0;
+  background: var(--quantora-surface-soft) !important;
+  border-color: var(--quantora-border) !important;
+}
+
+@media (max-width: 560px) {
+  .feature-studio-container,
+  .feature-studio-panel {
+    padding: 14px !important;
+  }
+
+  .feature-studio-container .input-row,
+  .feature-studio-panel .input-row {
+    flex-direction: column;
+  }
+
+  .feature-studio-container .input-row .input-group,
+  .feature-studio-panel .input-row .input-group {
+    min-width: 0;
+  }
+
+  .feature-studio-container .add-product-form,
+  .feature-studio-panel .add-product-form {
+    flex-wrap: wrap;
+  }
+
+  .feature-studio-container .add-product-form input,
+  .feature-studio-panel .add-product-form input {
+    min-width: 0;
+    flex: 1 1 140px;
+  }
+}
+
+.quantora-making-animation {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  min-width: min(100%, 360px);
+  padding: 11px 13px;
+  border: 1px solid var(--quantora-border);
+  border-radius: var(--quantora-radius-sm);
+  background: linear-gradient(135deg, rgba(238,242,255,.94), rgba(250,245,255,.9));
+}
+.quantora-making-orbit {
+  position: relative;
+  display: grid;
+  place-items: center;
+  flex: 0 0 42px;
+  width: 42px;
+  height: 42px;
+  border: 1px solid rgba(99,102,241,.3);
+  border-radius: 50%;
+  background: rgba(255,255,255,.76);
+}
+.quantora-making-orbit::before {
+  content: '';
+  position: absolute;
+  inset: 5px;
+  border: 1px dashed rgba(139,92,246,.42);
+  border-radius: 50%;
+}
+.quantora-making-core {
+  position: relative;
+  z-index: 1;
+  color: var(--quantora-indigo-strong);
+  font-weight: 900;
+  font-size: 15px;
+}
+.quantora-making-orbit-dot {
+  position: absolute;
+  z-index: 2;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--quantora-lavender-strong);
+  box-shadow: 0 0 0 3px rgba(167,139,250,.16);
+}
+.quantora-making-orbit-dot-one { top: 1px; left: 18px; }
+.quantora-making-orbit-dot-two { right: 2px; bottom: 10px; }
+.quantora-making-orbit-dot-three { bottom: 5px; left: 7px; }
+.quantora-making-copy { min-width: 0; flex: 1; }
+.quantora-making-title-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  color: var(--quantora-ink-strong);
+  font-size: 13px;
+}
+.quantora-making-title-row span { color: var(--quantora-indigo); font-variant-numeric: tabular-nums; }
+.quantora-making-track {
+  height: 6px;
+  margin-top: 8px;
+  overflow: hidden;
+  border-radius: 99px;
+  background: rgba(99,102,241,.14);
+}
+.quantora-making-track span {
+  display: block;
+  width: 100%;
+  height: 100%;
+  transform-origin: left center;
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--quantora-indigo), var(--quantora-lavender-strong));
+}
+.quantora-making-copy p,
+.quantora-making-copy small { display: block; margin: 6px 0 0; color: var(--quantora-muted); overflow-wrap: anywhere; }
+.quantora-making-copy p { font-size: 12px; }
+.quantora-making-copy small { font-size: 10px; line-height: 1.4; }
+.quantora-making-ellipsis { display: inline-block; min-width: 12px; }
+@media (prefers-reduced-motion: no-preference) {
+  .quantora-making-orbit { animation: quantora-making-rotate 3.2s linear infinite; }
+  .quantora-making-core { animation: quantora-making-breathe 1.8s ease-in-out infinite; }
+  .quantora-making-orbit-dot { animation: quantora-making-pulse 1.2s ease-in-out infinite alternate; }
+  .quantora-making-orbit-dot-two { animation-delay: .25s; }
+  .quantora-making-orbit-dot-three { animation-delay: .5s; }
+  .quantora-making-ellipsis { animation: quantora-making-dots 1.15s steps(4, end) infinite; overflow: hidden; vertical-align: bottom; }
+}
+@keyframes quantora-making-rotate { to { transform: rotate(360deg); } }
+@keyframes quantora-making-breathe { 50% { transform: scale(1.08); opacity: .82; } }
+@keyframes quantora-making-pulse { to { transform: scale(1.35); opacity: .55; } }
+@keyframes quantora-making-dots { 0% { width: 0; } 100% { width: 12px; } }
+@media (max-width: 640px) {
+  .quantora-making-animation { align-items: flex-start; min-width: 0; }
+  .quantora-making-orbit { flex-basis: 36px; width: 36px; height: 36px; }
+}
